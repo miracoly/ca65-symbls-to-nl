@@ -16,7 +16,7 @@ all: ca65-symbls-to-nl.out
 .PHONY: install
 install: ca65-symbls-to-nl.out
 	@mkdir -p $(DESTDIR)/bin
-	@cp ca65-symbls-to-nl.out $(DESTDIR)/bin/ca65-symbols-to-nl
+	@cp ca65-symbls-to-nl.out $(DESTDIR)/bin/ca65-symbls-to-nl
 
 ca65-symbls-to-nl.out: main.c
 	@echo Compiling $@
@@ -24,4 +24,4 @@ ca65-symbls-to-nl.out: main.c
 
 .PHONY: clean
 clean:
-	rm -rf *.o *.out *.out.dSYM *.nl
+	rm -rf *.o *.out *.out.dSYM *.nl ./bin

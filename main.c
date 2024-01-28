@@ -8,13 +8,13 @@
 static void print_help(void) {
     printf(
             "Convert cc65 label file into fceux namelist *.nl file.\n"
-            "\tUsage:\n"
-            "\t\tca65-symbls-to-nl -f input_file\n"
-            "\tOptions:\n"
-            "\t\t-f, --file\t\tConvert file.\n"
-            "\t\t-h, --help\t\tShow this help text.\n"
-            "\n"
+            "Usage:\n"
+            "\tca65-symbls-to-nl -f input_file\n"
+            "Options:\n"
+            "\t-f, --file\t\tConvert file.\n"
+            "\t-h, --help\t\tShow this help text.\n"
     );
+    exit(EXIT_SUCCESS);
 }
 
 typedef void consume_file(FILE* file, const char file_name[static 1]);

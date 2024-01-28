@@ -3,6 +3,7 @@
 #include <string.h>
 
 #define LINE_LENGTH_MAX 1024
+#define OUTPUTE_FILE_ENDING ".nl"
 
 static void print_help(void) {
     printf(
@@ -16,7 +17,7 @@ static void print_help(void) {
     );
 }
 
-typedef void consume_file(FILE* file);
+typedef void consume_file(FILE* file, const char file_name[static 1]);
 
 static void do_with_file(const char file_name[static 1], consume_file* consumer) {
     FILE* file = fopen(file_name, "r");
@@ -25,12 +26,20 @@ static void do_with_file(const char file_name[static 1], consume_file* consumer)
         exit(EXIT_FAILURE);
     }
 
-    consumer(file);
+    consumer(file, file_name);
     fclose(file);
 }
 
-static void convert_file(FILE* file) {
-    printf("Converting file...\n");
+static void convert_file(FILE* file, const char file_name[static 1]) {
+    printf("Converting file %s ...\n", file_name);
+
+    char output_name[strlen(file_name) + strlen(OUTPUTE_FILE_ENDING)];
+    strcpy(output_name, file_name);
+    strcat(output_name, OUTPUTE_FILE_ENDING);
+
+    FILE* output = fopen(output_name, "w");
+    fputs("test\n", output);
+
     unsigned int total = 0;
     char line[LINE_LENGTH_MAX] = {0};
 
@@ -38,6 +47,7 @@ static void convert_file(FILE* file) {
         total += 1;
     }
     printf("%u\n", total);
+    printf("Output written to %s\n", output_name);
 }
 
 static void handle_cmd_line_args(int argc, char* const* argv) {

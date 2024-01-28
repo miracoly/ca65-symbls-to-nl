@@ -58,3 +58,4 @@ dkms.conf
 # Output
 *.nl
 ca65-symbls-to-nl
+bin

@@ -1,0 +1,11 @@
+al 008064 .palette_data
+al 008063 .irq
+al 008062 .nmi
+al 008056 .@loop
+al 008051 .loop_forever
+al 008054 .load_palette
+al 00803C .main
+al 008037 .@vblank_wait_2
+al 00801D .@clear_mem
+al 008017 .@vblank_wait_1
+al 008000 .reset

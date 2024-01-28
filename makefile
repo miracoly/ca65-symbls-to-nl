@@ -11,12 +11,12 @@ CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
 #LIBS =
 
 .PHONY: all
-all: ca65-symbls-to-nl.out
+all: ca65-symbls-to-nl
 
-ca65-symbls-to-nl.out: main.c
+ca65-symbls-to-nl: main.c
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) ./main.c -o ca65-symbls-to-nl.out $(LIBS)
+	@$(CC) $(CFLAGS) ./main.c -o ca65-symbls-to-nl $(LIBS)
 
 .PHONY: clean
 clean:
-	rm -rf *.o *.out *.out.dSYM *.nl
+	rm -rf *.o *.out *.out.dSYM *.nl ca65-symbls-to-nl
